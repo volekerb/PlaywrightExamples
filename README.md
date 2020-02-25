@@ -17,3 +17,5 @@ jest test
 npm install
 node simple/testHabrPlaywright.ts
 ```
+### Useful links
+[Examples wuth cucumber](https://github.com/fredericbonnet/instakittens-react-admin/tree/master/playwright) 
