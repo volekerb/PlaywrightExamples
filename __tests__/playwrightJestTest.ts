@@ -8,7 +8,8 @@ describe('Habrahabr', () => {
         for (const browserType of ['chromium']) {
             browser = await playwright[browserType].launch({headless:false});
             const context = await browser.newContext();
-            page = await context.newPage('http://habr.com/');
+            page = await context.newPage();
+            await page.goto('https://habr.com');
         }
     });
 
@@ -32,8 +33,8 @@ describe('Geo location and navigation in yandex maps', () => {
             geolocation: { longitude: 12.492507, latitude: 41.889938 },
             permissions: { 'https://yandex.ru/maps': ['geolocation'] }
         });
-
-        const page = await context.newPage('https://yandex.ru/maps');
+        const page = await context.newPage();
+        await page.goto('https://yandex.ru/maps');
         await page.screenshot({ path: 'iphone.png' });
     });
 

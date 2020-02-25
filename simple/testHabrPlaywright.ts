@@ -4,7 +4,8 @@ const playwright = require('playwright');
     for (const browserType of ['chromium', 'firefox', 'webkit']) {
         const browser = await playwright[browserType].launch(({headless: false}));
         const context = await browser.newContext();
-        const page = await context.newPage('http://habr.com/');
+        const page = await browser.newPage();
+        await page.goto('https://habr.com');
 
         await page.screenshot({ path: `screenshots/example-${browserType}.png` });
         await browser.close();

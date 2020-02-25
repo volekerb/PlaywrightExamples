@@ -7,7 +7,8 @@ const deviceType = devices['iPhone 8'];
         viewport: deviceType.viewport,
         userAgent: deviceType.userAgent
     });
-    const page = await context.newPage('http://habr.com');
+    const page = await browser.newPage();
+    await page.goto('https://habr.com');
     await delay(2000);
     await page.screenshot({ path: `example-${deviceType.name}.png`});
     await browser.close();
